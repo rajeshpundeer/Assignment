@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <variable
+        name="comments"
+        type="com.example.assignmentwebguruz.responses.CommentsResponse.CommentsResponseItem"/>
+
+  </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvEmployee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/fivedp"
+        android:background="@color/white"
+        android:elevation="@dimen/twodp"
+        card_view:cardCornerRadius="5dp">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/tendp"
+            android:layout_marginStart="@dimen/tendp"
+            android:layout_marginTop="@dimen/twodp"
+            android:padding="@dimen/fourdp"
+            android:text="@{@string/name+ (' ')+comments.name}"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/eighteensp"
+            android:fontFamily="@font/oswald_semibold"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toEndOf="parent"
+            bind:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvFullName"
+            android:layout_marginEnd="@dimen/tendp"
+            android:layout_marginStart="@dimen/tendp"
+            android:layout_marginTop="@dimen/fourdp"
+            android:padding="@dimen/twodp"
+            android:text="@{@string/email+ (' ')+comments.email}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/sixteensp"
+            android:fontFamily="@font/oswald_semibold"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toEndOf="parent"
+            bind:layout_constraintTop_toBottomOf="@+id/tvFullName" />
+        <TextView
+            android:id="@+id/tvComments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvFullName"
+            android:layout_marginEnd="@dimen/tendp"
+            android:layout_marginStart="@dimen/tendp"
+            android:layout_marginTop="@dimen/fourdp"
+            android:padding="@dimen/twodp"
+            android:text="@{comments.body}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sixteensp"
+            android:fontFamily="@font/opensans_regular"
+            android:justificationMode="inter_word"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toEndOf="parent"
+            bind:layout_constraintTop_toBottomOf="@+id/tvEmail"
+            tools:text="Any Dummy Comment"/>
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
